@@ -1,225 +1,100 @@
 <!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>আত তাকওয়া ফুড কর্নার</title>
 <style>
-*{box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
-body{margin:0;background:#f3f6f2;color:#222;padding-bottom:30px}
-header{background:#0a8a3a;color:#fff;padding:16px 14px;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-header h1{margin:0;font-size:21px}
-header p{margin:3px 0 0;opacity:.9;font-size:13px}
-.tabs{display:flex;gap:8px;overflow:auto;padding:12px 10px;background:#fff;border-bottom:1px solid #e5e5e5}
-.tab{white-space:nowrap;border:1px solid #ddd;background:#f9f9f9;padding:8px 14px;border-radius:20px;font-weight:700;cursor:pointer;font-size:14px}
+*{box-sizing:border-box;font-family:system-ui}body{margin:0;background:#f3f6f2;color:#222;padding-bottom:30px}
+header{background:#0a8a3a;color:#fff;padding:15px 14px}header h1{margin:0;font-size:20px}header p{margin:3px 0 0;opacity:.9;font-size:13px}
+.tabs{display:flex;gap:8px;overflow:auto;padding:10px;background:#fff;border-bottom:1px solid #e5e5e5}
+.tab{white-space:nowrap;border:1px solid #ddd;background:#f9f9f9;padding:8px 14px;border-radius:20px;font-weight:700;font-size:14px}
 .tab.active{background:#0a8a3a;color:#fff;border-color:#0a8a3a}
-.card{background:#fff;margin:10px;border-radius:14px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
-.card h3{margin-top:0;font-size:17px;color:#0a8a3a;border-bottom:1px solid #f0f0f0;padding-bottom:8px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.mini{background:#f8faf8;border:1px solid #e6eee6;border-radius:12px;padding:12px;font-size:13px;color:#555}
-.mini b{font-size:20px;color:#111;display:block;margin-top:4px}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{padding:9px 6px;border-bottom:1px solid #eee;text-align:left}
-th{background:#f9f9f9;color:#444}
-input,select{width:100%;padding:11px;border:1px solid #ccc;border-radius:10px;margin:6px 0;font-size:15px;background:#fff}
-.btn{background:#0a8a3a;color:#fff;border:0;padding:12px;border-radius:10px;width:100%;font-size:16px;font-weight:700;cursor:pointer;margin-top:6px}
-.btn:active{opacity:0.9}
-.btn-danger{background:#d93025;color:#fff;border:0;padding:8px 12px;border-radius:8px;font-size:13px;cursor:pointer}
-.btn-sm{background:#eee;color:#333;border:0;padding:4px 8px;border-radius:6px;font-size:12px;cursor:pointer}
-.item-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:14px}
-.badge{background:#e6f4ea;color:#0a8a3a;padding:2px 6px;border-radius:4px;font-size:12px;font-weight:bold}
+.card{background:#fff;margin:10px;border-radius:14px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.card h3{margin-top:0;font-size:16px;color:#0a8a3a;border-bottom:1px solid #f0f0f0;padding-bottom:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{background:#f8faf8;border:1px solid #e6eee6;border-radius:12px;padding:10px;font-size:13px;color:#555}
+.mini b{font-size:19px;color:#111;display:block;margin-top:3px}table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 5px;border-bottom:1px solid #eee;text-align:left}input,select{width:100%;padding:10px;border:1px solid #ccc;border-radius:10px;margin:5px 0;font-size:15px}
+.btn{background:#0a8a3a;color:#fff;border:0;padding:12px;border-radius:10px;width:100%;font-size:15px;font-weight:700;margin-top:5px}
+.btn-d{background:#d93025;color:#fff;border:0;padding:8px 12px;border-radius:8px;font-size:13px}.btn-s{background:#eee;border:0;padding:4px 8px;border-radius:6px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:14px}
+.badge{background:#e6f4ea;color:#0a8a3a;padding:2px 6px;border-radius:4px;font-size:12px;font-weight:700}
+#login{position:fixed;top:0;left:0;width:100%;height:100%;background:#0a8a3a;display:flex;align-items:center;justify-content:center;z-index:99;padding:20px}
+.lbox{background:#fff;padding:24px;border-radius:16px;width:100%;max-width:330px;text-align:center}
+.lbox input{text-align:center;font-size:20px;letter-spacing:4px;font-weight:700}
+</style></head><body><div id="login"><div class="lbox"><h2 style="margin:0 0 8px;color:#0a8a3a">🔒 আত তাকওয়া ফুড কর্নার</h2>
+<p style="margin:0 0 15px;color:#666;font-size:14px">প্রবেশ করতে পাসওয়ার্ড দিন</p>
+<input type="password" id="pIn" placeholder="••••" onkeyup="if(event.key==='Enter')chk()">
+<button type="button" class="btn" onclick="chk()">প্রবেশ করুন</button>
+<p id="err" style="color:#d93025;font-size:13px;margin-top:10px;display:none">❌ ভুল পাসওয়ার্ড!</p></div></div>
 
-/* লগইন স্ক্রিন স্টাইল */
-#loginScreen{position:fixed;top:0;left:0;width:100%;height:100%;background:#0a8a3a;display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px}
-.login-box{background:#fff;padding:24px;border-radius:16px;width:100%;max-width:340px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.2)}
-.login-box h2{margin:0 0 8px;color:#0a8a3a;font-size:22px}
-.login-box p{margin:0 0 16px;color:#666;font-size:14px}
-.login-box input{text-align:center;font-size:20px;letter-spacing:4px;font-weight:bold}
-</style>
-</head>
-<body>
+<div id="app" style="display:none">
+<header><div style="display:flex;justify-content:space-between;align-items:center">
+<div><h1>🛒 আত তাকওয়া ফুড কর্নার</h1><p id="dt"></p></div>
+<button type="button" onclick="lck()" style="background:rgba(255,255,255,.2);border:1px solid #fff;color:#fff;padding:6px 10px;border-radius:8px">🔒 লক</button>
+</div></header>
 
-<!-- পাসওয়ার্ড লগইন স্ক্রিন -->
-<div id="loginScreen">
-  <div class="login-box">
-    <h2>🔒 আত তাকওয়া ফুড কর্নার</h2>
-    <p>ড্যাশবোর্ডে প্রবেশ করতে পাসওয়ার্ড দিন</p>
-    <input type="password" id="passInput" placeholder="••••" onkeyup="if(event.key==='Enter') checkPass()">
-    <button class="btn" onclick="checkPass()">প্রবেশ করুন</button>
-    <p id="errMsg" style="color:#d93025;font-size:13px;margin-top:10px;display:none">❌ ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।</p>
-  </div>
+<div class="tabs">
+<button type="button" class="tab active" onclick="sh('dash',this)">📊 ড্যাশবোর্ড</button>
+<button type="button" class="tab" onclick="sh('sell',this)">💰 বিক্রয়</button>
+<button type="button" class="tab" onclick="sh('buy',this)">📦 ক্রয়</button>
+<button type="button" class="tab" onclick="sh('cost',this)">💸 খরচ</button>
+<button type="button" class="tab" onclick="sh('stock',this)">📋 স্টক</button>
 </div>
 
-<!-- মূল অ্যাপ -->
-<div id="mainApp" style="display:none">
-  <header>
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div>
-        <h1>🛒 আত তাকওয়া ফুড কর্নার</h1>
-        <p>ব্যবসার হিসাব ও ব্যবস্থাপনা ড্যাশবোর্ড</p>
-        <p id="todayDate"></p>
-      </div>
-      <button onclick="lockApp()" style="background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);color:#fff;padding:6px 10px;border-radius:8px;font-size:12px;cursor:pointer">🔒 লক</button>
-    </div>
-  </header>
+<div id="dash"><div class="card"><h3>📊 ব্যবসার সারসংক্ষেপ</h3><div class="grid">
+<div class="mini">মোট বিক্রয়<b id="tS">৳ 0</b></div><div class="mini">প্রকৃত লাভ<b id="tP" style="color:#0a8a3a">৳ 0</b></div>
+<div class="mini">মোট ক্রয়<b id="tB">৳ 0</b></div><div class="mini">মোট খরচ<b id="tC" style="color:#d93025">৳ 0</b></div>
+<div class="mini">পণ্য সংখ্যা<b id="tCnt">0 টি</b></div><div class="mini">মোট স্টক<b id="tStk">0 একক</b></div>
+</div></div><div class="card"><h3>সাম্প্রতিক বিক্রয়</h3><div id="rec">কোনো তথ্য নেই</div></div></div>
 
-  <div class="tabs">
-    <button class="tab active" onclick="show('dash',this)">📊 ড্যাশবোর্ড</button>
-    <button class="tab" onclick="show('sell',this)">💰 বিক্রয়</button>
-    <button class="tab" onclick="show('buy',this)">📦 ক্রয়</button>
-    <button class="tab" onclick="show('cost',this)">💸 খরচ</button>
-    <button class="tab" onclick="show('stock',this)">📋 পণ্য ও স্টক</button>
-  </div>
+<div id="sell" style="display:none"><div class="card"><h3>নতুন বিক্রয়</h3>
+<select id="sPrd"></select><input id="sQty" type="number" step="0.01" value="1" placeholder="পরিমাণ">
+<button type="button" class="btn" onclick="addS()">✅ বিক্রয় যোগ করুন</button></div><div class="card"><div id="sLst"></div></div></div>
 
-  <!-- ড্যাশবোর্ড -->
-  <div id="dash">
-    <div class="card">
-      <h3>📊 ব্যবসার সারসংক্ষেপ</h3>
-      <div class="grid">
-        <div class="mini">মোট বিক্রয়<b id="tSell">৳ 0</b></div>
-        <div class="mini">প্রকৃত লাভ (নিট)<b id="tProfit" style="color:#0a8a3a">৳ 0</b></div>
-        <div class="mini">মোট নতুন ক্রয়<b id="tBuy">৳ 0</b></div>
-        <div class="mini">মোট অন্যান্য খরচ<b id="tCost" style="color:#d93025">৳ 0</b></div>
-        <div class="mini">পণ্য সংখ্যা<b id="tCount">0 টি</b></div>
-        <div class="mini">মোট স্টক পরিমাণ<b id="tStock">0 একক</b></div>
-      </div>
-    </div>
-    <div class="card">
-      <h3>সাম্প্রতিক বিক্রয়</h3>
-      <div id="recent">এখনো কোনো তথ্য যোগ করা হয়নি</div>
-    </div>
-  </div>
+<div id="buy" style="display:none"><div class="card"><h3>নতুন ক্রয়</h3>
+<select id="bPrd"></select><input id="bQty" type="number" step="0.01" value="1" placeholder="পরিমাণ">
+<button type="button" class="btn" onclick="addB()">📦 স্টকে যোগ করুন</button></div><div class="card"><div id="bLst"></div></div></div>
 
-  <!-- বিক্রয় -->
-  <div id="sell" style="display:none">
-    <div class="card">
-      <h3>নতুন বিক্রয় যোগ করুন</h3>
-      <label>পণ্য নির্বাচন করুন:</label>
-      <select id="sellProd"></select>
-      <label>পরিমাণ:</label>
-      <input id="sellQty" type="number" step="0.01" value="1" placeholder="পরিমাণ লিখুন">
-      <button class="btn" onclick="addSell()">✅ বিক্রয় সম্পন্ন করুন</button>
-    </div>
-    <div class="card">
-      <h3>বিক্রয়ের তালিকা</h3>
-      <div id="sellList"></div>
-    </div>
-  </div>
+<div id="cost" style="display:none"><div class="card"><h3>খরচ যোগ</h3>
+<input id="cNm" placeholder="খরচের নাম"><input id="cAmt" type="number" placeholder="টাকা">
+<button type="button" class="btn" onclick="addC()">💸 খরচ যোগ করুন</button></div><div class="card"><div id="cLst"></div></div></div>
 
-  <!-- ক্রয় -->
-  <div id="buy" style="display:none">
-    <div class="card">
-      <h3>স্টকে পণ্য ক্রয়/যোগ করুন</h3>
-      <label>পণ্য নির্বাচন করুন:</label>
-      <select id="buyProd"></select>
-      <label>পরিমাণ:</label>
-      <input id="buyQty" type="number" step="0.01" value="1" placeholder="পরিমাণ লিখুন">
-      <button class="btn" onclick="addBuy()">📦 স্টকে যোগ করুন</button>
-    </div>
-    <div class="card">
-      <h3>ক্রয়ের তালিকা</h3>
-      <div id="buyList"></div>
-    </div>
-  </div>
-
-  <!-- খরচ -->
-  <div id="cost" style="display:none">
-    <div class="card">
-      <h3>দৈনন্দিন খরচ যোগ</h3>
-      <input id="costName" placeholder="খরচের বিবরণ (যেমন: পলিথিন, যাতায়াত)">
-      <input id="costAmt" type="number" placeholder="টাকার পরিমাণ">
-      <button class="btn" onclick="addCost()">💸 খরচ যোগ করুন</button>
-    </div>
-    <div class="card">
-      <h3>খরচের তালিকা</h3>
-      <div id="costList"></div>
-    </div>
-  </div>
-
-  <!-- পণ্য ও স্টক -->
-  <div id="stock" style="display:none">
-    <div class="card">
-      <h3>বর্তমান স্টক ও মূল্য তালিকা</h3>
-      <div id="stockTable"></div>
-      <p style="margin-top:15px">
-        <a href="https://google.com" target="_blank" style="color:#0a8a3a;font-weight:bold;text-decoration:none">🔗 আপনার Google Sheet খুলুন ↗</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>➕ নতুন পণ্য যোগ করুন</h3>
-      <input id="newProdName" placeholder="পণ্যের নাম (যেমন: কালোজিরা)">
-      <input id="newProdUnit" placeholder="একক (যেমন: কেজি / লিটার / পিস)" value="কেজি">
-      <div class="grid">
-        <input id="newProdBuy" type="number" placeholder="ক্রয় দর (৳)">
-        <input id="newProdSell" type="number" placeholder="বিক্রয় দর (৳)">
-      </div>
-      <input id="newProdStock" type="number" step="0.01" placeholder="প্রাথমিক স্টক পরিমাণ">
-      <button class="btn" onclick="addNewProduct()">নতুন পণ্য সেভ করুন</button>
-    </div>
-
-    <!-- পাসওয়ার্ড পরিবর্তন -->
-    <div class="card">
-      <h3>🔑 পাসওয়ার্ড পরিবর্তন</h3>
-      <input type="password" id="newPassInput" placeholder="নতুন পাসওয়ার্ড দিন">
-      <button class="btn" style="background:#333" onclick="changePass()">পাসওয়ার্ড আপডেট করুন</button>
-    </div>
-
-    <div class="card" style="text-align:center">
-      <button class="btn-danger" onclick="resetData()">⚠️ সব হিসাব রিসেট করুন (নতুন মাস)</button>
-    </div>
-  </div>
-</div>
-
-<script>
-// পাসওয়ার্ড লজিক (ডিফল্ট পাসওয়ার্ড: 1234)
-let savedPass = localStorage.getItem('at_pass') || '1234';
-
-function checkPass() {
-  let input = document.getElementById('passInput').value;
-  if (input === savedPass) {
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('mainApp').style.display = 'block';
-    document.getElementById('errMsg').style.display = 'none';
-    document.getElementById('passInput').value = '';
-  } else {
-    document.getElementById('errMsg').style.display = 'block';
-  }
+<div id="stock" style="display:none"><div class="card"><h3>পণ্য ও স্টক</h3><div id="stkTbl"></div>
+<p><a href="https://google.com" target="_blank" style="color:#0a8a3a;font-weight:700">🔗 Google Sheet খুলুন ↗</a></p></div>
+<div class="card"><h3>➕ নতুন পণ্য যোগ</h3><input id="nNm" placeholder="পণ্যের নাম"><input id="nUn" value="কেজি" placeholder="একক">
+<div class="grid"><input id="nBy" type="number" placeholder="ক্রয় দর"><input id="nSl" type="number" placeholder="বিক্রয় দর"></div>
+<input id="nSt" type="number" step="0.01" placeholder="প্রাথমিক স্টক"><button type="button" class="btn" onclick="addP()">সেভ করুন</button></div>
+<div class="card"><h3>🔑 পাসওয়ার্ড পরিবর্তন</h3><input type="password" id="npIn" placeholder="নতুন পাসওয়ার্ড">
+<button type="button" class="btn" style="background:#333" onclick="chgP()">পাসওয়ার্ড বদলান</button></div>
+<div class="card" style="text-align:center"><button type="button" class="btn-d" onclick="rst()">⚠️ হিসাব রিসেট করুন</button></div></div>
+  </div><script>
+let ps=localStorage.getItem('at_pass')||'1234';
+const en=s=>s.replace(/[০-৯]/g,d=>'০১২৩৪৫৬৭৮৯'.indexOf(d));
+function chk(){let r=document.getElementById('pIn').value.trim();if(en(r)===ps||r===ps){document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';document.getElementById('err').style.display='none';document.getElementById('pIn').value='';}else document.getElementById('err').style.display='block';}
+function lck(){document.getElementById('app').style.display='none';document.getElementById('login').style.display='flex';}
+function chgP(){let n=en(document.getElementById('npIn').value.trim());if(n.length<4)return alert('কমপক্ষে ৪ সংখ্যা দিন!');ps=n;localStorage.setItem('at_pass',n);document.getElementById('npIn').value='';alert('পাসওয়ার্ড পরিবর্তন হয়েছে!');}
+document.getElementById('dt').innerText='📅 '+new Date().toLocaleDateString('bn-BD',{year:'numeric',month:'long',day:'numeric'});
+let def=[{n:'মরিচের গুঁড়া',u:'কেজি',s:17,b:400,p:440},{n:'ধনিয়া গুঁড়া',u:'কেজি',s:20,b:220,p:440},{n:'হলুদের গুঁড়া',u:'কেজি',s:9,b:280,p:400},{n:'সরিষার তেল',u:'লিটার',s:20,b:220,p:280},{n:'সুন্দরবন এর মধু',u:'কেজি',s:5,b:1000,p:1500},{n:'কালোজিরা ফুলের মধু',u:'কেজি',s:5,b:620,p:1150},{n:'চাকের মধু',u:'কেজি',s:20,b:620,p:1150},{n:'শিশু ফুলের মধু',u:'কেজি',s:10,b:450,p:650},{n:'সরিষা ফুলের মধু',u:'কেজি',s:5,b:450,p:650},{n:'ঘি',u:'কেজি',s:5,b:960,p:1400},{n:'পাট পুড়া',u:'কেজি',s:2.5,b:700,p:800},{n:'জিরা গুঁড়া',u:'কেজি',s:0.5,b:400,p:600}];
+let stk=JSON.parse(localStorage.getItem('at_stock'))||def,sls=JSON.parse(localStorage.getItem('at_sell')||'[]'),bys=JSON.parse(localStorage.getItem('at_buy')||'[]'),cst=JSON.parse(localStorage.getItem('at_cost')||'[]');
+function sv(){localStorage.setItem('at_sell',JSON.stringify(sls));localStorage.setItem('at_buy',JSON.stringify(bys));localStorage.setItem('at_cost',JSON.stringify(cst));localStorage.setItem('at_stock',JSON.stringify(stk));rnd();}
+function sh(id,el){['dash','sell','buy','cost','stock'].forEach(x=>document.getElementById(x).style.display=x==id?'block':'none');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');}
+function rnd(){
+let sT=sls.reduce((a,s)=>a+s.q*s.p,0),gP=sls.reduce((a,s)=>a+s.q*(s.p-(s.b||0)),0),bT=bys.reduce((a,b)=>a+b.q*b.p,0),cT=cst.reduce((a,c)=>a+c.a,0),nP=gP-cT;
+document.getElementById('tS').innerText='৳ '+sT;document.getElementById('tB').innerText='৳ '+bT;document.getElementById('tC').innerText='৳ '+cT;
+let pe=document.getElementById('tP');pe.innerText='৳ '+nP;pe.style.color=nP>=0?'#0a8a3a':'#d93025';
+document.getElementById('tCnt').innerText=stk.length+' টি';document.getElementById('tStk').innerText=Number(stk.reduce((a,p)=>a+p.s,0).toFixed(2))+' একক';
+document.getElementById('stkTbl').innerHTML='<table><tr><th>পণ্য</th><th>স্টক</th><th>ক্রয়/বিক্রয়</th></tr>'+stk.map(p=>`<tr><td><b>${p.n}</b></td><td><span class="badge">${Number(p.s.toFixed(2))} ${p.u}</span></td><td>৳${p.b}/<b>৳${p.p}</b></td></tr>`).join('')+'</table>';
+document.getElementById('sPrd').innerHTML=stk.map((p,i)=>`<option value="${i}">${p.n} (${Number(p.s.toFixed(2))} ${p.u}) - ৳${p.p}</option>`).join('');
+document.getElementById('bPrd').innerHTML=stk.map((p,i)=>`<option value="${i}">${p.n} - ৳${p.b}</option>`).join('');
+document.getElementById('sLst').innerHTML=sls.slice().reverse().map((s,x)=>{let i=sls.length-1-x;return`<div class="row"><span>✅ <b>${s.n}</b> (${s.q} ${s.u||''}) - ৳${s.q*s.p}</span><button type="button" class="btn-s" onclick="dS(${i})">❌</button></div>`;}).join('')||'কোনো বিক্রয় নেই';
+document.getElementById('bLst').innerHTML=bys.slice().reverse().map(b=>`<div class="row"><span>📦 <b>${b.n}</b> (${b.q} ${b.u||''}) - ৳${b.q*b.p}</span></div>`).join('')||'কোনো ক্রয় নেই';
+document.getElementById('cLst').innerHTML=cst.slice().reverse().map((c,x)=>{let i=cst.length-1-x;return`<div class="row"><span>💸 ${c.n} - <b>৳${c.a}</b></span><button type="button" class="btn-s" onclick="dC(${i})">❌</button></div>`;}).join('')||'কোনো খরচ নেই';
+document.getElementById('rec').innerHTML=sls.slice(-4).reverse().map(s=>`<div class="row"><span>✅ ${s.n} (${s.q} ${s.u||''})</span><b>৳ ${s.q*s.p}</b></div>`).join('')||'কোনো তথ্য নেই';
 }
-
-function lockApp() {
-  document.getElementById('mainApp').style.display = 'none';
-  document.getElementById('loginScreen').style.display = 'flex';
-}
-
-function changePass() {
-  let np = document.getElementById('newPassInput').value.trim();
-  if (np.length < 4) { alert('কমপক্ষে ৪ সংখ্যার বা অক্ষরের পাসওয়ার্ড দিন!'); return; }
-  savedPass = np;
-  localStorage.setItem('at_pass', np);
-  document.getElementById('newPassInput').value = '';
-  alert('পাসওয়ার্ড সফলভাবে পরিবর্তন হয়েছে!');
-}
-
-// আজকের তারিখ সেট করা
-document.getElementById('todayDate').innerText = '📅 ' + new Date().toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' });
-
-let defaultStock = [
-  {n:'মরিচের গুঁড়া',u:'কেজি',s:17,b:400,p:440},
-  {n:'ধনিয়া গুঁড়া',u:'কেজি',s:20,b:220,p:440},
-  {n:'হলুদের গুঁড়া',u:'কেজি',s:9,b:280,p:400},
-  {n:'সরিষার তেল',u:'লিটার',s:20,b:220,p:280},
-  {n:'সুন্দরবন এর মধু',u:'কেজি',s:5,b:1000,p:1500},
-  {n:'কালোজিরা ফুলের মধু',u:'কেজি',s:5,b:620,p:1150},
-  {n:'চাকের মধু',u:'কেজি',s:20,b:620,p:1150},
-  {n:'শিশু ফুলের মধু',u:'কেজি',s:10,b:450,p:650},
-  {n:'সরিষা ফুলের মধু',u:'কেজি',s:5,b:450,p:650},
-  {n:'ঘি',u:'কেজি',s:5,b:960,p:1400},
-  {n:'পাট পুড়া',u:'কেজি',s:2.5,b:700,p:800},
-  {n:'জিরা গুঁড়া',u:'কেজি',s:0.5,b:400,p:600},
-];
-
-let stock = JSON.parse(localStorage.getItem('at_stock')) || defaultStock;
-let sells = JSON.parse(localStorage.getItem('at_sell') || '[]');
-let buys = JSON.parse(localStorage.getItem('at_buy') || '[]');
-let costs = JSON.parse(localStorage.getItem('at_cost') || '[]');
+function addS(){let i=+document.getElementById('sPrd').value,q=+document.getElementById('sQty').value;if(q<=0)return alert('সঠিক পরিমাণ দিন!');if(stk[i].s<q)return alert('স্টকে পর্যাপ্ত পণ্য নেই!');stk[i].s=Number((stk[i].s-q).toFixed(3));sls.push({n:stk[i].n,u:stk[i].u,q,p:stk[i].p,b:stk[i].b});document.getElementById('sQty').value=1;sv();alert('বিক্রয় যোগ হয়েছে!');}
+function dS(i){if(!confirm('মুছতে চান?'))return;let p=stk.find(x=>x.n===sls[i].n);if(p)p.s+=sls[i].q;sls.splice(i,1);sv();}
+function addB(){let i=+document.getElementById('bPrd').value,q=+document.getElementById('bQty').value;if(q<=0)return alert('সঠিক পরিমাণ দিন!');stk[i].s=Number((stk[i].s+q).toFixed(3));bys.push({n:stk[i].n,u:stk[i].u,q,p:stk[i].b});document.getElementById('bQty').value=1;sv();alert('স্টক আপডেট হয়েছে!');}
+function addC(){let n=document.getElementById('cNm').value.trim(),a=+document.getElementById('cAmt').value;if(!n||a<=0)return alert('সঠিক তথ্য দিন!');cst.push({n,a});document.getElementById('cNm').value='';document.getElementById('cAmt').value='';sv();}
+function dC(i){if(confirm('মুছতে চান?')){cst.splice(i,1);sv();}}
+function addP(){let n=document.getElementById('nNm').value.trim(),u=document.getElementById('nUn').value.trim()||'কেজি',b=+document.getElementById('nBy').value,p=+document.getElementById('nSl').value,s=+document.getElementById('nSt').value;if(!n||b<=0||p<=0)return alert('সঠিক তথ্য দিন!');stk.push({n,u,s,b,p});['nNm','nBy','nSl','nSt'].forEach(x=>document.getElementById(x).value='');sv();alert('নতুন পণ্য যোগ হয়েছে!');}
+function rst(){if(confirm('সব হিসাব মুছে ফেলতে চান?')){sls=[];bys=[];cst=[];sv();alert('রিসেট হয়েছে!');}}
+rnd();
+</script></body></html>
